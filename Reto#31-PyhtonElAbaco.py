@@ -1,0 +1,61 @@
+"""
+* Crea una función que sea capaz de leer el número representado por el ábaco.
+* - El ábaco se representa por un array con 7 elementos.
+* - Cada elemento tendrá 9 "O" (aunque habitualmente tiene 10 para realizar
+*   operaciones) para las cuentas y una secuencia de "---" para el alambre.
+ * - El primer elemento del array representa los millones, y el último las unidades.
+ * - El número en cada elemento se representa por las cuentas que están a
+ *   la izquierda del alambre.
+ *
+ * Ejemplo de array y resultado:
+ * ["O---OOOOOOOO",
+ *  "OOO---OOOOOO",
+ *  "---OOOOOOOOO",
+ *  "OO---OOOOOOO",
+ *  "OOOOOOO---OO",
+ *  "OOOOOOOOO---",
+ *  "---OOOOOOOOO"]
+ *  
+ *  Resultado: 1.302.790
+ */
+"""
+numerosAbaco={
+"O---OOOOOOOO":"1",
+"OO---OOOOOOO":"2",
+"OOO---OOOOOO":"3",
+"OOOO---OOOOO":"4",
+"OOOOO---OOOO":"5",
+"OOOOOO---OOO":"6",
+"OOOOOOO---OO":"7",
+"OOOOOOOO---O":"8",
+"OOOOOOOOO---":"9",
+"---OOOOOOOOO":"0"
+}
+
+def Abaco(a):
+	numero=0
+	for i in a:	
+
+		for j in numerosAbaco:
+			if j==i:
+				numero=(numero*10)+int(numerosAbaco[j])
+				break
+
+	return numero
+
+
+
+
+a=[
+"O---OOOOOOOO",
+"OOO---OOOOOO",
+"---OOOOOOOOO",
+"OO---OOOOOOO",
+"OOOOOOO---OO",
+"OOOOOOOOO---",
+"---OOOOOOOOO"
+]
+
+print (Abaco(a))
+
+
